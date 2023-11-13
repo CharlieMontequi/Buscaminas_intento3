@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <menu xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/juegoNuevo"
+
+        android:title="@string/juegoNuevo"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/dificultad"
+
+        android:title="@string/dificultad" />
+    <item
+        android:id="@+id/instrucciones"
+        android:title="@string/instrucciones" />
+
+    <item
+        android:id="@+id/personajes"
+        android:title="@string/personajes" />
+</menu>

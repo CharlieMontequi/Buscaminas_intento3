@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">buscaminas</string>
+    <string name="mostrarTexto"/>
+    <!-- nombres menu-->
+    <string name="juegoNuevo">Juegar de nuevo</string>
+    <string name="dificultad">Elegir dificultad</string>
+    <string name="instrucciones">Instrucciones de juego</string>
+    <string name="personajes">Cambiar personaje</string>
+    <!-- nombres dificultades-->
+    <string name="agrupacionDificultad"/>
+    <string name="principiante">Principiante</string>
+    <string name="amateur">Amateur</string>
+    <string name="avanzado">Avanzado</string>
+    <!-- instrucciones-->
+    <string name="explicacion">
+        Para jugar pincha en cualquiera de las casillas para revelarla.
+        Si la casilla no tiene ninguna trampa a su alrededos reveleran las casillas hasta llegar a alguna que si la tenga.
+        Las casillas que tiene trampas cerca muestrar un numero que indica cuantas trampas hay.
+        Para marcar un trampa manten pulsada la casilla para marcarla.
+        El juego acaba cuando se mancar todas las trampas o se pincha en una trampa.
+    </string>
+</resources>
