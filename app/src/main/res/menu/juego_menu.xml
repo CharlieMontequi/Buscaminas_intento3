@@ -9,7 +9,6 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/dificultad"
-
         android:title="@string/dificultad" />
     <item
         android:id="@+id/instrucciones"

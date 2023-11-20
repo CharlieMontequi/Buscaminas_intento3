@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Buscapiñas</string>
+
+    <!-- nombres menu-->
+    <string name="personajeActual"></string>
+    <string name="juegoNuevo">New Game</string>
+    <string name="dificultad">Choose Difficulty</string>
+    <string name="instrucciones">Instructions of the game</string>
+    <string name="personajes">Choose character</string>
+    <!-- nombres dificultades-->
+    <string name="agrupacionDificultad"/>
+    <string name="principiante">Beginner</string>
+    <string name="amateur">Amateur</string>
+    <string name="avanzado">Advanced</string>
+    <!-- instrucciones-->
+    <string name="instruccion">
+        To play, click on any of the boxes to reveal it. \n
+        If the square does not have any batteries around it, they will reveal the squares until they reach one that does.\n
+        The squares that have pine cones nearby show a number that indicates how many pine cones there are.\n
+        To mark a pineapple, press and hold the box to mark it.\n
+        The game ends when all the pineapples are spilled or a pineapple is punctured.
+    </string>
+</resources>

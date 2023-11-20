@@ -1,41 +1,47 @@
 package com.example.buscaminas
 
-import android.content.ClipData.Item
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.GridLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //por defecto se inicia el juego a null de dificultad
-        inicarJuego(null)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+      //  val jugar = Jugabilidad()
+
     }
 
     // el elemento que infla el menu para mostrarlo
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_buscaminas, menu)// OJO- se pasa la vista que se quiere inflar
+        inflater.inflate(R.menu.juego_menu, menu)// OJO- se pasa la vista que se quiere inflar
         return true
     }
 
-    // opciones del menú
-    // cada opcion se muestra al inflarse el menú y va a asociada a un elemento del mismo
+    /**
+     * menu que muestra las diferentes opciones y lleva al método correspondiente
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
+
             R.id.juegoNuevo -> {
                 juegoNuevo()
                 true
@@ -59,57 +65,93 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-// metodos para inciar especidifcos de cada opcion
-    private fun juegoNuevo() {
-    // debe crear una nueva plantilla de la ultimia dificultad selccionada
 
     /**
-     * se abre un radio buton que permite elegir entre tres tipos de dificultad y crear una nueva partida
+     * crea una partida nueva y reinicia la que puedira estar iniciada
+     * por defecto siempre las crea en nivel principiante
      */
-    }
-    private fun elegirDificultad() {
-        // anclar la accion al pinchar en la opcion de dificultades del menu--DUDA
-        val dificultades = findViewById<Item>(R.id.dificultad)
+    private fun juegoNuevo() {
 
-        val BG_opciones = findViewById<RadioGroup>(R.id.agrupacionDificultad)
-        // se recoge la opcion seleccionada para crear el tablero
-        val opcionMarcada = BG_opciones.checkedRadioButtonId
-        if (opcionMarcada!=-1){
-            val eleccion = findViewById<RadioButton>(opcionMarcada)
-            inicarJuego(eleccion)
-        }else{
-            val eleccion = findViewById<RadioButton>(opcionMarcada)
-            inicarJuego(eleccion)
+
+     //   val jugar = Jugabilidad()
+
+      //  jugar.iniciarJuego(-1)
+
+    }
+
+    /**
+     * permite escoger la dificultad de la nueva partida
+     * al aceptar se crea una partida co la dificultad marcada
+     */
+
+    private fun elegirDificultad() {
+        // se crea el radiogroup y las opciones que iran dentro
+        val radioGroup = RadioGroup(this)
+
+        // Crear RadioButtons
+        val principiante = RadioButton(this)
+        principiante.text = "Principiante"
+        val amateur = RadioButton(this)
+        amateur.text = "Amateur"
+        val avanzado = RadioButton(this)
+        avanzado.text = "Avanzado"
+        // Agregar RadioButtons al RadioGroup
+        radioGroup.addView(principiante)
+        radioGroup.addView(amateur)
+        radioGroup.addView(avanzado)
+
+        val msnEmergente = AlertDialog.Builder(this)
+
+        msnEmergente.setView(radioGroup)
+
+       msnEmergente.setPositiveButton("Aceptar") { dialog, which ->
+
+          //  val jugar = Jugabilidad()
+
+          //  jugar.iniciarJuego(radioGroup.checkedRadioButtonId)
+
         }
+
+
+        msnEmergente.show()
     }
 
     /**
      * explica el juego
-     * se asigan al text view el contenido del string de la explicacion del juego
+     *
      */
     private fun verInstrucciones() {
-        val verInstruccios=findViewById<TextView>(R.id.mostraTexto)
-        verInstruccios.text=R.string.explicacion.toString()
+        val msnEmergente = AlertDialog.Builder(this)
+        val instrucciones = R.string.instruccion
+        msnEmergente.setMessage(getString(R.string.instruccion))
+        msnEmergente.show()
     }
+
     /**
-     * se abre un radio buton que permtie seleccionar el personaje que se va a buscar
+     * permit cambiar la imagen del objeto a buscar
      */
-    private fun elegirPersonajes(){
+    private fun elegirPersonajes() {
+       val personaje1 = CheckBox(this)
+        val pinia1 = R.drawable.pina1
+        personaje1.setButtonDrawable(pinia1)
+        val personaje2 = CheckBox(this)
+        val pinia2 = R.drawable.pina2
+        personaje2.setButtonDrawable(pinia1)
+        val personaje3 = CheckBox(this)
+        val pinia3 = R.drawable.pina3
+        personaje3.setButtonDrawable(pinia1)
+        val personaje4 = CheckBox(this)
+        val pinia4 = R.drawable.pina4
+        personaje4.setButtonDrawable(pinia1)
 
-    }
-    /**
-     * se crea un tablerod e juego nuevo en funcion de la dificultad seleccionada
-     * por defecto se tiene la dificultad principiante
-     */
-    private fun inicarJuego( dificultad:RadioButton?){
-        var dificultadBase= "principiante"
-        if (dificultad!=null){
-            dificultadBase=dificultad.text.toString()
-            //generar mapas con la dificultad marcada
-        }else{
-            //generar mapas con la dificultad marcada
+        val msnEmergente = AlertDialog.Builder(this)
 
-        }
+        msnEmergente.setView(personaje1)
+        msnEmergente.setView(personaje2)
+        msnEmergente.setView(personaje3)
+        msnEmergente.setView(personaje4)
+        msnEmergente.show()
     }
 
-    }
+
+}
